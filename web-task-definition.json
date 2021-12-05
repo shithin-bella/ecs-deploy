@@ -1,0 +1,25 @@
+{
+    "containerDefinitions": [
+      {
+        "portMappings": [
+          {
+            "hostPort": 0,
+            "protocol": "tcp",
+            "containerPort": 80
+          }
+        ],
+        "command": null,
+        "cpu": 512,
+        "environment": [],
+        "memory": 512,
+        "image": "nginx:1.7.9",
+        "name": "web"
+      }
+    ],
+    "memory": "1024",
+    "family": "Web-service",
+    "requiresCompatibilities": [
+      "EC2"
+    ],
+    "cpu": "1024"
+  }
