@@ -33,12 +33,12 @@ on:
 
 env:
   AWS_REGION: us-east-2                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: angular-app           # set this to your Amazon ECR repository name
-  WEB_ECS_SERVICE: web-service                 # set this to your Amazon ECS service name
+  ECR_REPOSITORY: speakeasyhub-api           # set this to your Amazon ECR repository name
+  API_ECS_SERVICE: api-service                 # set this to your Amazon ECS service name
   ECS_CLUSTER: SpeakEasyhub-qa                 # set this to your Amazon ECS cluster name
-  WEB_ECS_TASK_DEFINITION: web-task-definition.json # set this to the path to your Amazon ECS task definition
+  API_ECS_TASK_DEFINITION: api-task-definition.json # set this to the path to your Amazon ECS task definition
                                                # file, e.g. .aws/task-definition.json
-  WEB_CONTAINER_NAME: web           # set this to the name of the container in the
+  API_CONTAINER_NAME: python           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
 jobs:
@@ -79,14 +79,14 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: ${{ env.WEB_ECS_TASK_DEFINITION }}
-        container-name: ${{ env.WEB_CONTAINER_NAME }}
+        task-definition: ${{ env.API_ECS_TASK_DEFINITION }}
+        container-name: ${{ env.API_CONTAINER_NAME }}
         image: ${{ steps.build-image.outputs.image }}
 
     # - name: Deploy Amazon ECS task definition
     #   uses: aws-actions/amazon-ecs-deploy-task-definition@v1
     #   with:
     #     task-definition: ${{ steps.task-def.outputs.task-definition }}
-    #     service: ${{ env.WEB_ECS_SERVICE }}
+    #     service: ${{ env.API_ECS_SERVICE }}
     #     cluster: ${{ env.ECS_CLUSTER }}
     #     wait-for-service-stability: true

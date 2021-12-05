@@ -5,19 +5,19 @@
           {
             "hostPort": 0,
             "protocol": "tcp",
-            "containerPort": 80
+            "containerPort": 8080
           }
         ],
         "command": null,
         "cpu": 512,
         "environment": [],
         "memory": 512,
-        "image": "nginx:1.7.9",
-        "name": "web"
+        "image": "000699069757.dkr.ecr.us-east-2.amazonaws.com/speakeasyhub-api:latest",
+        "name": "python"
       }
     ],
     "memory": "1024",
-    "family": "Web-service",
+    "family": "API-Service",
     "requiresCompatibilities": [
       "EC2"
     ],
