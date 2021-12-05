@@ -81,7 +81,7 @@ jobs:
       with:
         task-definition: ${{ env.WEB_ECS_TASK_DEFINITION }}
         container-name: ${{ env.WEB_CONTAINER_NAME }}
-        image: latest
+        image: nginx:latest
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
